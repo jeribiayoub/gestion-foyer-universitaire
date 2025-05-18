@@ -7,7 +7,7 @@ header("Pragma: no-cache");
 header("Expires: 0");
 
 if (!isset($_SESSION['admin_id'])) {
-    header("Location: index.php");
+    header("Location: index_admin.php");
     exit();
 }
 
@@ -18,7 +18,7 @@ try {
     if (isset($_POST['logout'])) {
         session_unset();
         session_destroy();
-        header("Location: index.php");
+        header("Location: index_admin.php");
         exit();
     }
 
@@ -193,7 +193,7 @@ try {
         .then(response => response.json())
         .then(data => {
             if (!data.logged_in) {
-                window.location.href = 'index.php';
+                window.location.href = 'index_admin.php';
             }
         });
 </script>
